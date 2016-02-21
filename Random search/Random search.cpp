@@ -9,30 +9,35 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {	
-	int iteration_i = 200;
-	double size_of_rand = 8;
+	int iteration_i, dimension_i, func_i;
+	double size_of_rand;
 	std::vector<Solution>solutions;
 	std::vector<double> X = {15.6, 48.85, 10 };
 	std::vector<double> Y;
 	Solution solution;
-	std::cout << numero_uno_x(X) << std::endl;
-	std::cout << numero_due_x(X) << std::endl;
-	std::cout << numero_tre_x(X) << std::endl;
+	
+	iteration_i = getIterations();
+	dimension_i = getDimension();
+	size_of_rand = getRandSize();
+	func_i = getFunc();
+	X = getFirstIteration(dimension_i);
 
-	solution.result_x_ = numero_uno_x(X);
+	solution.result_x_ = funcIt(X,func_i);
 	solution.xes = X;
 	solutions.push_back(solution);
+
 
 	for (int i = 0; i <= iteration_i; i++)
 	{
 		Y = random_x(X, size_of_rand);
-		if(numero_uno_x(Y) < solutions.at(solutions.size()-1).result_x_)
+		if(funcIt(Y,func_i) < solutions.at(solutions.size()-1).result_x_)
 		{
 			Solution temp;
-			temp.result_x_ = numero_uno_x(Y);
+			temp.result_x_ = funcIt(Y,func_i);
 			temp.xes = Y;
 			solutions.push_back(temp);
 		}
+		std::cout << i << std::endl;
 		
 	}
 	for (auto k : solutions)
@@ -40,6 +45,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		printVector(k.xes);
 		std::cout << k.result_x_ << std::endl;
 	}
+
+
+	getchar();
 	getchar();
 	return 0;
 }

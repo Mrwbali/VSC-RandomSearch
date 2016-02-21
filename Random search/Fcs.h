@@ -1,11 +1,14 @@
 ﻿#include "vector"
 #include "iostream"
 
-double numero_uno_x(std::vector<double>xes);
-double numero_due_x(std::vector<double>xes);
-double numero_tre_x(std::vector<double>xes);
+double funcIt(std::vector<double>xes, int func_i);
 std::vector<double> random_x(std::vector<double> vector, double size_d);
 void printVector(std::vector<double> vector);
+int getDimension();
+int getIterations();
+double getRandSize();
+int getFunc();
+std::vector<double> getFirstIteration(int dimension_i);
 struct Solution
 {
 	std::vector<double> xes;
