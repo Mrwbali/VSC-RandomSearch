@@ -41,7 +41,7 @@ std::vector<double> random_x(std::vector<double> vector, double size_d)
 	res_vector.clear();
 	for (auto i : vector)
 	{
-		res_vector.push_back(((i + size_d) - (i - size_d)) * ((double)rand() / (double)RAND_MAX) + (i - size_d));
+		res_vector.push_back( ( ( i + size_d ) - ( i - size_d) ) * ( ( double ) rand() / ( double ) RAND_MAX ) + ( i - size_d ) );
 	}
 	return res_vector;
 }

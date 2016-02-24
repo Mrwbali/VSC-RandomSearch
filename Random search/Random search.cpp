@@ -28,22 +28,25 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 	for (int i = 0; i <= iteration_i; i++)
-	{
+	{	
+		
 		Y = random_x(X, size_of_rand);
 		if(funcIt(Y,func_i) < solutions.at(solutions.size()-1).result_x_)
 		{
 			Solution temp;
 			temp.result_x_ = funcIt(Y,func_i);
 			temp.xes = Y;
+			X = Y;
 			solutions.push_back(temp);
 		}
-		std::cout << i << std::endl;
+		//std::cout << i << std::endl;
 		
 	}
-	for (auto k : solutions)
+	std::cout << std::endl;
+	for (int k = 20; k > 0; k--)
 	{
-		printVector(k.xes);
-		std::cout << k.result_x_ << std::endl;
+		printVector(solutions.at(solutions.size()-k).xes);
+		std::cout << solutions.at(solutions.size() - k).result_x_ << std::endl;
 	}
 
 
